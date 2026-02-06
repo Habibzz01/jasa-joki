@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/ico" href="https://raw.githubusercontent.com/Habibzz01/jasa-joki-makalah/refs/heads/main/assets/1770384536.ico">
+    <title>Xbibz Official | Joki Makalah & Game</title>
+    <meta property="og:title" content="Xbibz Official | Jasa Joki Makalah & Game" />
+    <meta property="og:description" content="Bibzz Jasa Joki Makalah & Push Rank" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/Habibzz01/jasa-joki-makalah/refs/heads/main/assets/1770384536.ico" />
+    <meta property="og:url" content="https://habibzz01.github.io/jasa-joki-makalah" />
+    <meta property="og:type" content="website" />
+
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome (Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CORE VARIABLES --- */
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --primary: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.5);
+            --accent: #ec4899;
+            --accent-glow: rgba(236, 72, 153, 0.5);
+            
+            /* FF Theme Vars */
+            --ff-gold: #fbbf24;
+            --ff-orange: #f97316;
+            
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.1);
+            --glass: blur(12px);
+            --font-main: 'Outfit', sans-serif;
+            --font-display: 'Space Grotesk', sans-serif;
+        }
+
+        /* --- RESET & BASE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- BACKGROUND FX (Lightweight) --- */
+        .ambient-light {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            top: -100px;
+            left: -100px;
+            z-index: 0;
+            opacity: 0.4;
+            pointer-events: none;
+            animation: pulse 10s infinite alternate;
+        }
+
+        .ambient-light-2 {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            bottom: -100px;
+            right: -100px;
+            z-index: 0;
+            opacity: 0.3;
+            pointer-events: none;
+            animation: pulse 8s infinite alternate-reverse;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.3; }
+            100% { transform: scale(1.2); opacity: 0.5; }
+        }
+
+        /* --- COMPONENTS --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-family: var(--font-display);
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            box-shadow: 0 10px 20px -10px var(--primary-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -10px var(--primary-glow);
+        }
+
+        /* Special button for FF */
+        .btn-ff {
+            background: linear-gradient(135deg, var(--ff-orange) 0%, var(--ff-gold) 100%);
+            color: white;
+            box-shadow: 0 10px 20px -10px rgba(249, 115, 22, 0.3);
+            border: none;
+        }
+        
+        .btn-ff:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -10px rgba(249, 115, 22, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: var(--text-main);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-text-accent {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .gradient-text-ff {
+            background: linear-gradient(to right, var(--ff-gold), var(--ff-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 20px 0;
+            transition: 0.4s;
+            backdrop-filter: blur(0px); /* Init state */
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: var(--glass);
+            border-bottom: 1px solid var(--border);
+            padding: 15px 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: white;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--accent);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        p.lead {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            margin-top: 50px;
+            display: flex;
+            gap: 40px;
+            border-top: 1px solid var(--border);
+            padding-top: 30px;
+        }
+
+        .stat h3 { font-size: 2rem; color: white; font-family: var(--font-display); }
+        .stat span { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* --- FEATURES & GENERAL CARDS --- */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-family: var(--font-display);
+            margin-bottom: 15px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 20px;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        /* FF Card Variant */
+        .card-ff:hover {
+            border-color: var(--ff-gold);
+            box-shadow: 0 10px 30px -10px rgba(251, 191, 36, 0.15);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.2));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-family: var(--font-display);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        .price-tag {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 15px 0;
+            display: block;
+        }
+
+        /* --- SERVICES (List) --- */
+        .service-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 25px;
+            border-bottom: 1px solid var(--border);
+            transition: 0.3s;
+        }
+
+        .service-item:hover {
+            background: rgba(255,255,255,0.02);
+            padding-left: 35px;
+        }
+
+        .service-info h4 { font-size: 1.2rem; color: white; margin-bottom: 5px; }
+        .service-info p { font-size: 0.9rem; color: var(--text-muted); }
+        .service-arrow { color: var(--primary); opacity: 0; transform: translateX(-10px); transition: 0.3s; }
+        .service-item:hover .service-arrow { opacity: 1; transform: translateX(0); }
+
+        /* --- CTA BANNER --- */
+        .cta-box {
+            background: linear-gradient(135deg, #1e1b4b, #3730a3);
+            border-radius: 30px;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        /* FF CTA Variant */
+        .cta-box-ff {
+            background: linear-gradient(135deg, #451a03, #7c2d12);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 60px 0 30px;
+            margin-top: 80px;
+            background: #050508;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand h2 { font-family: var(--font-display); margin-bottom: 15px; }
+        .footer-brand p { color: var(--text-muted); max-width: 300px; }
+        
+        .footer-links h4 { color: white; margin-bottom: 20px; font-family: var(--font-display); }
+        .footer-links ul li { margin-bottom: 10px; }
+        .footer-links ul li a { color: var(--text-muted); font-size: 0.9rem; }
+        .footer-links ul li a:hover { color: var(--primary); }
+
+        .copyright {
+            text-align: center;
+            color: rgba(255,255,255,0.2);
+            font-size: 0.8rem;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-dark);
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 0;
+                border-bottom: 1px solid var(--border);
+                transform: translateY(-150%);
+                transition: 0.4s;
+                z-index: 99;
+            }
+            .nav-links.active { transform: translateY(0); }
+            .mobile-toggle { display: block; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+            .footer-brand p { margin: 0 auto; }
+            .hero-stats { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ambient FX -->
+    <div class="ambient-light"></div>
+    <div class="ambient-light-2"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-bolt"></i> Xbibz<span style="color:var(--primary)">Official</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#keunggulan">Kenapa Kami</a></li>
+                <li><a href="#layanan">Akademik</a></li>
+                <li><a href="#game-joki">Joki Game</a></li> <!-- New Menu Item -->
+                <li><a href="#harga">Harga</a></li>
+                <li><a href="https://wa.me/6281615951066?text=Halo%20Bos%20Xbibz,%20saya%20mau%20order%20joki" class="btn btn-primary" style="padding: 8px 20px; border-radius: 8px;">Order Now</a></li>
+            </ul>
+            <div class="mobile-toggle" id="mobileMenu">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge"><i class="fa-solid fa-check-circle"></i> JASA JOKI TERPERCAYA</span>
+                <h1>Tugas Numpuk?<br>Rank Nyungsep?<br><span class="gradient-text-accent">Xbibz Official</span> Solusinya.</h1>
+                <p class="lead">Layanan joki akademik profesional & push rank game. Dari Makalah, Skripsi, sampe Heroic FF. Lo santai, hasil aman di tangan ahlinya. Privasi 100% terjaga.</p>
+                
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <a href="https://wa.me/6281615951066?text=Bos%20Xbibz,%20bantu%20tugas%20gue%20dong" class="btn btn-primary">
+                        Konsultasi Gratis <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#layanan" class="btn btn-outline">
+                        Lihat Layanan
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>5k+</h3>
+                        <span>Project Selesai</span>
+                    </div>
+                    <div class="stat">
+                        <h3>99%</h3>
+                        <span>Kepuasan</span>
+                    </div>
+                    <div class="stat">
+                        <h3>24/7</h3>
+                        <span>Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="keunggulan" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Kenapa Harus <span class="gradient-text">Xbibz?</span></h2>
+                <p style="color:var(--text-muted)">Jangan pertaruhkan nilai & rank lo sama joki abal-abal.</p>
+            </div>
+
+            <div class="grid-3">
+                <!-- Feature 1 -->
+                <div class="card reveal">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3>Kilat & Tepat Waktu</h3>
+                    <p>Deadline mepet? Tenang. Tim kita kerja sat-set gak pake lama. Revisi siap sedia sampe lo puas.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="card reveal" style="transition-delay: 0.1s;">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3>Aman & Anti Banned</h3>
+                    <p>Tulisan manual lolos Turnitin. Joki game murni skill, no cheat, no script. Akun lo aman 100%.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="card reveal" style="transition-delay: 0.2s;">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-user-secret"></i>
+                    </div>
+                    <h3>Privasi Terjaga</h3>
+                    <p>Data diri lo, kampus, atau nickname akun game lo aman. Kita profesional, gak bakal bocor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Services Section -->
+    <section id="layanan" class="section" style="background: rgba(255,255,255,0.01);">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Layanan <span class="gradient-text-accent">Akademik</span></h2>
+                <p style="color:var(--text-muted)">Apapun tugas lo, sikat habis di sini.</p>
+            </div>
+
+            <div class="reveal">
+                <!-- Service 1 -->
+                <div class="service-item">
+                    <div class="service-info">
+                        <h4><i class="fa-solid fa-file-word" style="color: #3b82f6; margin-right: 10px;"></i> Makalah & Paper</h4>
+                        <p>Format rapi, sitasi standar (APA/Harvard), isi berbobot.</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right service-arrow"></i>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-item">
+                    <div class="service-info">
+                        <h4><i class="fa-solid fa-file-powerpoint" style="color: #f97316; margin-right: 10px;"></i> PowerPoint Kreatif</h4>
+                        <p>Desain estetik, animasi smooth, poin-poin ringkas dan jelas.</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right service-arrow"></i>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-item">
+                    <div class="service-info">
+                        <h4><i class="fa-solid fa-book-open" style="color: #10b981; margin-right: 10px;"></i> Review Jurnal</h4>
+                        <p>Analisis mendalam, kritis, bahasa mudah dipahami dosen.</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right service-arrow"></i>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-item">
+                    <div class="service-info">
+                        <h4><i class="fa-solid fa-graduation-cap" style="color: #ec4899; margin-right: 10px;"></i> Skripsi & Proposal</h4>
+                        <p>Bimbingan bab per bab, revisi dosen dibantu sampe ACC.</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right service-arrow"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: FREE FIRE JOKI -->
+    <section id="game-joki" class="section" style="background: linear-gradient(to bottom, var(--bg-dark), #18100a);">
+        <div class="container">
+            <div class="section-header reveal">
+                <!-- FF Logo with Glow -->
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRjJCxGedGw_Yv_Kfy65KNYILODH51_U4OHTh7ewHkU6DfOsBm5MnsSIs&s=10" 
+                     alt="Free Fire Logo" 
+                     style="width: 80px; height: auto; border-radius: 18px; margin-bottom: 20px; box-shadow: 0 0 25px rgba(251, 191, 36, 0.4); border: 2px solid var(--ff-gold);">
+                
+                <h2>Joki <span class="gradient-text-ff">Free Fire</span></h2>
+                <p style="color:var(--text-muted)">Push rank sat-set, KD terjaga, Auto Booyah!</p>
+            </div>
+
+            <div class="grid-3">
+                <!-- Plan 1 -->
+                <div class="card card-ff reveal">
+                    <div class="card-icon" style="background: rgba(251, 191, 36, 0.1); color: var(--ff-gold);">
+                        <i class="fa-solid fa-medal"></i>
+                    </div>
+                    <h3>Gold <i class="fa-solid fa-arrow-right" style="font-size: 0.8em; opacity: 0.5;"></i> Platinum</h3>
+                    <p>Paket Hemat buat lepas dari tier neraka.</p>
+                    <span class="price-tag" style="color: var(--ff-gold);">30K+</span>
+                    <a href="https://wa.me/6281615951066?text=Halo%20Bos%20Xbibz,%20mau%20order%20joki%20FF%20Gold%20ke%20Platinum" class="btn btn-outline" style="width: 100%; justify-content: center; margin-top: 10px; border-color: rgba(255,255,255,0.2);">Gas Order</a>
+                </div>
+
+                <!-- Plan 2 -->
+                <div class="card card-ff reveal" style="transition-delay: 0.1s;">
+                    <div class="card-icon" style="background: rgba(45, 212, 191, 0.1); color: #2dd4bf;">
+                        <i class="fa-solid fa-gem"></i>
+                    </div>
+                    <h3>Platinum <i class="fa-solid fa-arrow-right" style="font-size: 0.8em; opacity: 0.5;"></i> Diamond</h3>
+                    <p>Mulai serius, lawan mulai keras, serahin ke kita.</p>
+                    <span class="price-tag" style="color: #2dd4bf;">45K+</span>
+                    <a href="https://wa.me/6281615951066?text=Halo%20Bos%20Xbibz,%20mau%20order%20joki%20FF%20Platinum%20ke%20Diamond" class="btn btn-outline" style="width: 100%; justify-content: center; margin-top: 10px; border-color: rgba(255,255,255,0.2);">Gas Order</a>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="card card-ff reveal" style="transition-delay: 0.2s;">
+                    <div class="card-icon" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <h3>Diamond <i class="fa-solid fa-arrow-right" style="font-size: 0.8em; opacity: 0.5;"></i> Heroic</h3>
+                    <p>Menuju puncak, gameplay pro player only.</p>
+                    <span class="price-tag" style="color: #ef4444;">55K+</span>
+                    <a href="https://wa.me/6281615951066?text=Halo%20Bos%20Xbibz,%20mau%20order%20joki%20FF%20Diamond%20ke%20Heroic" class="btn btn-outline" style="width: 100%; justify-content: center; margin-top: 10px; border-color: rgba(255,255,255,0.2);">Gas Order</a>
+                </div>
+            </div>
+
+            <!-- Custom Request Box -->
+            <div class="reveal" style="margin-top: 50px; text-align: center;">
+                <div style="background: rgba(255,255,255,0.03); border: 1px dashed var(--ff-gold); border-radius: 20px; padding: 30px; max-width: 600px; margin: 0 auto;">
+                    <h4 style="color: white; margin-bottom: 10px; font-family: var(--font-display);">Mau Custom Rank atau Request Lain?</h4>
+                    <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.9rem;">
+                        Mau joki Master? Grandmaster? Atau maintain KD? Konsultasi dulu aja, harga cincai.
+                    </p>
+                    <a href="https://wa.me/6281615951066?text=Halo%20Bos%20Xbibz,%20mau%20tanya%20custom%20joki%20FF%20dong" class="btn btn-ff">
+                        <i class="fa-brands fa-whatsapp"></i> Tanya / Custom Joki
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing / CTA Academic -->
+    <section id="harga" class="section">
+        <div class="container">
+            <div class="cta-box reveal">
+                <h2 style="font-size: 2.5rem; font-family: var(--font-display); margin-bottom: 20px;">Harga Mahasiswa, Kualitas Dewa</h2>
+                <p style="color: #cbd5e1; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Gak perlu jual ginjal buat dapet nilai A. Harga mulai dari <strong>10rb</strong> tergantung tingkat kesulitan dan deadline. Nego? Gas aja di WA.
+                </p>
+                <a href="https://wa.me/6281615951066?text=Info%20pricelist%20tugas%20akademik%20dong%20Bos%20Xbibz" class="btn btn-primary" style="font-size: 1.1rem; padding: 15px 40px;">
+                    <i class="fa-brands fa-whatsapp"></i> Chat Admin Sekarang
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>Xbibz<span style="color:var(--primary)">Official</span></h2>
+                    <p>Partner akademik & gaming terbaik lo. Fokus aja sama hidup lo, biar tugas & rank jadi urusan kita.</p>
+                    <div style="margin-top: 20px; display: flex; gap: 15px;">
+                        <a href="#" style="color:white; font-size: 1.2rem;"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" style="color:white; font-size: 1.2rem;"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#" style="color:white; font-size: 1.2rem;"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#layanan">Akademik</a></li>
+                        <li><a href="#game-joki">Joki Game</a></li>
+                        <li><a href="#harga">Harga</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Kontak</h4>
+                    <ul>
+                        <li><a href="#"><i class="fa-brands fa-whatsapp"></i> +6281615951066</a></li>
+                        <li><a href="#"><i class="fa-solid fa-envelope"></i> xbibzofficial@protonmail.com</a></li>
+                        <li><a href="#"><i class="fa-solid fa-location-dot"></i> Indonesia</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Xbibz Official. All Rights Reserved. Designed with <i class="fa-solid fa-heart" style="color:var(--accent)"></i> by Xbibz Team.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script Logic -->
+    <script>
+        // --- Navbar Scroll Effect ---
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // --- Mobile Menu Toggle ---
+        const mobileBtn = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+        const links = document.querySelectorAll('.nav-links a');
+
+        mobileBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Change icon
+            const icon = mobileBtn.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars-staggered');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars-staggered');
+            }
+        });
+
+        // Close menu when link clicked
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = mobileBtn.querySelector('i');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars-staggered');
+            });
+        });
+
+        // --- Scroll Reveal Animation (Intersection Observer) ---
+        // High performance: No scroll event listeners loop
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Stop observing once revealed (performance)
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.15, // Trigger when 15% visible
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+    </script>
+</body>
+</html>
